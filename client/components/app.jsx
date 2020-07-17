@@ -56,7 +56,7 @@ class App extends React.Component {
             averageGrade={isNaN(average) ? 0 : average}/>
         </div>
         <div className='row'>
-          <GradeTable grades={ this.state.grades } />
+          <GradeTable grades={ this.state.grades } onDeleteGrade={this.deleteGrade}/>
           <GradeForm onAddNewGrade={this.addNewGrade}/>
         </div>
       </div>
