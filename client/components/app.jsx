@@ -9,7 +9,7 @@ class App extends React.Component {
   }
 
   getAverageGrade(grades) {
-    const sum = grades.reduce((total, num, index, array) => {
+    const sum = grades.reduce((total, num) => {
       total += num.grade;
       return total;
     }, 0);
@@ -27,7 +27,8 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <Header title='Student Grade Table'/>
+        <Header title='Student Grade Table' averageTitle='Average Grade'
+          averageGrade={this.getAverageGrade(this.state.grades)}/>
         <GradeTable grades={ this.state.grades } />
       </div>
     );
