@@ -10,3 +10,11 @@
 .header-container h4 {
   float: right;
 }
+
+.grade-form-container input {
+  width: 100%;
+}
+
+.grade-form-container i {
+  font-size: 1.1rem;
+}

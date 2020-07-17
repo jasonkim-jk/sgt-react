@@ -7,17 +7,19 @@ export default function GradeTable(props) {
   );
 
   return (
-    <table className='table'>
-      <thead className='thead-light'>
-        <tr>
-          <th scope='col'>Student Name</th>
-          <th scope='col'>Course</th>
-          <th scope='col'>Grade</th>
-        </tr>
-      </thead>
-      <tbody>
-        { gradeList }
-      </tbody>
-    </table>
+    <div className='col col-md-8'>
+      <table className='table'>
+        <thead className='thead-light'>
+          <tr>
+            <th scope='col'>Student Name</th>
+            <th scope='col'>Course</th>
+            <th scope='col'>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          { gradeList }
+        </tbody>
+      </table>
+    </div>
   );
 }
