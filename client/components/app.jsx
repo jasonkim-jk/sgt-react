@@ -28,9 +28,13 @@ class App extends React.Component {
     const average = this.getAverageGrade(this.state.grades);
     return (
       <div className='container'>
-        <Header title='Student Grade Table' averageTitle='Average Grade'
-          averageGrade={isNaN(average) ? 0 : average}/>
-        <GradeTable grades={ this.state.grades } />
+        <div className='row'>
+          <Header title='Student Grade Table' averageTitle='Average Grade'
+            averageGrade={isNaN(average) ? 0 : average}/>
+        </div>
+        <div className='row'>
+          <GradeTable grades={ this.state.grades } />
+        </div>
       </div>
     );
   }
