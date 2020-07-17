@@ -25,10 +25,11 @@ class App extends React.Component {
   }
 
   render() {
+    const average = this.getAverageGrade(this.state.grades);
     return (
       <div className='container'>
         <Header title='Student Grade Table' averageTitle='Average Grade'
-          averageGrade={this.getAverageGrade(this.state.grades)}/>
+          averageGrade={isNaN(average) ? 0 : average}/>
         <GradeTable grades={ this.state.grades } />
       </div>
     );
