@@ -2,6 +2,9 @@ import React from 'react';
 
 export default function Header(props) {
   return (
-    <h1>{ props.title }</h1>
+    <div className='header-container'>
+      <h3>{props.title}</h3>
+      <h4> {props.averageTitle} <span className="badge badge-secondary">{props.averageGrade}</span></h4>
+    </div>
   );
 }
