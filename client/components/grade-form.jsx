@@ -5,11 +5,21 @@ export default class GradeForm extends React.Component {
     super(props);
     this.state = { name: '', course: '', grade: '' };
     this.handleChange = this.handleChange.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleChange(event) {
-    // eslint-disable-next-line no-console
-    console.log('id: ', event.target.id, ' value: ', event.target.value);
+    if (event.target.id === 'name') {
+      this.setState({ name: event.target.value });
+    } else if (event.target.id === 'course') {
+      this.setState({ course: event.target.value });
+    } else if (event.target.id === 'grade') {
+      this.setState({ grade: event.target.value });
+    }
+  }
+
+  handleCancel(event) {
+    this.setState({ name: '', course: '', grade: '' });
   }
 
   render() {
@@ -35,12 +45,12 @@ export default class GradeForm extends React.Component {
           <div className="form-group row flex-nowrap">
             <label htmlFor="grade" className="col-2">{iconGrade}</label>
             <div className="col-10 pl-0">
-              <input type="text" className="form-control-sm" id="grade" name="grade" placeholder="Grade" onChange={this.handleChange}/>
+              <input type="number" className="form-control-sm" id="grade" name="grade" placeholder="Grade" onChange={this.handleChange}/>
             </div>
           </div>
           <div className="form-btn-container float-right">
             <button type="submit" className="btn btn-secondary mr-2" id="form-submit">Add</button>
-            <button type="reset" className="btn btn-outline-dark" id="form-reset">Cancel</button>
+            <button type="reset" className="btn btn-outline-dark" id="form-reset" onClick={this.handleCancel}>Cancel</button>
           </div>
         </form>
       </div>
