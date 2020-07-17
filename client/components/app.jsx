@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { grades: [] };
+    this.addNewGrade = this.addNewGrade.bind(this);
   }
 
   getAverageGrade(grades) {
@@ -30,8 +31,7 @@ class App extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(grade)
     }).then(response => response.json())
-    // eslint-disable-next-line no-console
-      .then(data => console.log(data))
+      .then(data => this.setState({ grades: this.state.grades.concat(data) }))
       .catch(error => console.error(error.message));
   }
 
@@ -45,7 +45,7 @@ class App extends React.Component {
         </div>
         <div className='row'>
           <GradeTable grades={ this.state.grades } />
-          <GradeForm />
+          <GradeForm onAddNewGrade={this.addNewGrade}/>
         </div>
       </div>
     );

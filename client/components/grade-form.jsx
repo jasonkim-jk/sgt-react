@@ -5,17 +5,19 @@ export default class GradeForm extends React.Component {
     super(props);
     this.state = { name: '', course: '', grade: '' };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleChange(event) {
-    if (event.target.id === 'name') {
-      this.setState({ name: event.target.value });
-    } else if (event.target.id === 'course') {
-      this.setState({ course: event.target.value });
-    } else if (event.target.id === 'grade') {
-      this.setState({ grade: event.target.value });
-    }
+    const value = event.target.id === 'grade' ? parseInt(event.target.value) : event.target.value;
+    this.setState({ [event.target.id]: value });
+  }
+
+  handleSubmit(event) {
+    this.props.onAddNewGrade(this.state);
+    this.setState({ name: '', course: '', grade: '' });
+    event.preventDefault();
   }
 
   handleCancel(event) {
@@ -49,7 +51,7 @@ export default class GradeForm extends React.Component {
             </div>
           </div>
           <div className="form-btn-container float-right">
-            <button type="submit" className="btn btn-secondary mr-2" id="form-submit">Add</button>
+            <button type="submit" className="btn btn-secondary mr-2" id="form-submit" onClick={this.handleSubmit}>Add</button>
             <button type="reset" className="btn btn-outline-dark" id="form-reset" onClick={this.handleCancel}>Cancel</button>
           </div>
         </form>
