@@ -35,19 +35,19 @@ export default class GradeForm extends React.Component {
           <div className="form-group row flex-nowrap">
             <label htmlFor="name" className="col-2">{iconName}</label>
             <div className="col-10 pl-0">
-              <input type="text" className="form-control-sm" id="name" name="name" placeholder="Name" onChange={this.handleChange}/>
+              <input type="text" className="form-control" id="name" name="name" placeholder="Name" value={this.state.name} onChange={this.handleChange}/>
             </div>
           </div>
           <div className="form-group row flex-nowrap">
             <label htmlFor="course" className="col-2">{iconCourse}</label>
             <div className="col-10 pl-0">
-              <input type="text" className="form-control-sm" id="course" name="course" placeholder="Course" onChange={this.handleChange}/>
+              <input type="text" className="form-control" id="course" name="course" placeholder="Course" value={this.state.course} onChange={this.handleChange}/>
             </div>
           </div>
           <div className="form-group row flex-nowrap">
             <label htmlFor="grade" className="col-2">{iconGrade}</label>
             <div className="col-10 pl-0">
-              <input type="number" className="form-control-sm" id="grade" name="grade" placeholder="Grade" onChange={this.handleChange}/>
+              <input type="number" className="form-control" id="grade" name="grade" placeholder="Grade" value={this.state.grade} onChange={this.handleChange}/>
             </div>
           </div>
           <div className="form-btn-container float-right">
